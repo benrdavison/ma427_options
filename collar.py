@@ -6,6 +6,9 @@ class AlertYellowChicken(QCAlgorithm):
     #Built in QuantConnect Initializer
     def Initialize(self):
         self.SetStartDate(2015, 1, 1)  # Set Start Date (here, first reliable start date available)
+        
+        #NOTE: No end date specified, so variation may result from recent SPY moves
+        
         self.SetCash(50000)  # Set Strategy Cash
         equity = self.AddEquity("SPY", Resolution.Daily) #Only need daily resolution, lower resolution generally slows algo down
         equity.SetDataNormalizationMode(DataNormalizationMode.Raw) #Realistic tradable pricing
